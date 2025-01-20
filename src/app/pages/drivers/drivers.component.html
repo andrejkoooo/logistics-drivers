@@ -1,0 +1,32 @@
+<h1>Drivers</h1>
+<input type="text"
+  id="search"
+  (keyup)="onSearchKeyUp($event)"
+  placeholder="Search Driver" />
+<br>
+
+<table>
+  <tr>
+    <th>Driver Name</th>
+    <th>Vehicle Registration</th>
+    <th>Activities (in Minutes)</th>
+    @for (day of daysInWeek; track $index) {
+      <th>{{day}}</th>
+    }
+  </tr>
+  @for (driver of filteredDrivers; track $index) {
+  <tr>
+    <td>{{driver.name}}</td>
+    <td>{{driver.vehicleRegistration}}</td>
+    <td>Total: {{driver.totalDuration}} {{getActivites(driver.activityTypes)}}</td>
+    @for (day of daysInWeek; track $index) {
+    <td>
+      <span class="day" [class.day-work]="driverActive(driver, $index + 1)"></span>
+    </td>
+    }
+  </tr>
+  }
+</table>
+@if(filteredDrivers.length === 0) {
+  <p class="not-drivers-found">No drivers found.</p>
+}

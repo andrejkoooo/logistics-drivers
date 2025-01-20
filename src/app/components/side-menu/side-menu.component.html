@@ -1,0 +1,7 @@
+<nav>
+  @for (menu of menus$ | async; track $index) {
+    <div class="link">
+      <a [routerLink]="menu.url" routerLinkActive="active-link" >{{menu.title}} </a>
+    </div>
+  }
+ </nav>
