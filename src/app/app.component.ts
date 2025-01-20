@@ -7,7 +7,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent, SideMenuComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: true
 })
 export class AppComponent {
 }

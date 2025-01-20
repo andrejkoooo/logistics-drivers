@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IMenu, IMenuResponse } from '../../Models/menuModels';
+import { IMenuResponse } from '../../Models/menuModels';
 import { map } from 'rxjs';
 
 @Injectable({

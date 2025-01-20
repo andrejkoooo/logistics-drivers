@@ -1,4 +1,4 @@
-import { IActivity, ITableActivity, ITrace } from "../../Models/driverModels";
+import { ITableActivity, ITrace } from "../../Models/driverModels";
 
 export const calculateTotalActivityTime = (traces: ITrace[]) => {
 

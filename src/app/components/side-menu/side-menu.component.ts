@@ -9,7 +9,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-side-menu',
   imports: [AsyncPipe, RouterModule],
   templateUrl: './side-menu.component.html',
-  styleUrl: './side-menu.component.css'
+  styleUrl: './side-menu.component.css',
+  standalone: true
 })
 export class SideMenuComponent implements OnInit {
 public menus$:Observable<IMenu[]>| null = null;
