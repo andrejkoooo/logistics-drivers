@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IDriver, IDriversReposnse, ITableDriver } from '../../Models/driverModels';
-import { map } from 'rxjs';
+import {catchError, map, of} from 'rxjs';
 import { calculateTotalActivityTime, getActivityDays, getGroupActivities } from './driver-helper';
 
 @Injectable({
@@ -14,7 +14,10 @@ export class DriversService {
 
   public getDrivers() {
     return this._http.get<IDriversReposnse>(this._drivers)
-      .pipe(map(x => (x.data.map(this.mapToTableDriver))))
+      .pipe(
+        map(x => (x.data.map(this.mapToTableDriver))),
+        catchError( error => of(error))
+      )
   }
 
   private mapToTableDriver(driver: IDriver): ITableDriver {
